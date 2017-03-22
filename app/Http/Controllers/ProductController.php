@@ -13,7 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products=\App\Product::orderBY('id','DESC')->paginate();
+
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -79,6 +81,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product =\App\product::find($id);
+        $product->delete();
+        return back();
     }
 }
