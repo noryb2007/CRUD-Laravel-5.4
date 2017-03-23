@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new \App\Product;
+
+        $product->name  = $request->name;
+        $product->short = $request->short;
+        $product->body  = $request->body;
+
+        $product->save();
+
+        return redirect()->route('products.index');
     }
 
     /**
