@@ -8,6 +8,8 @@
 		</a>
 	</h2>
 
+	@include('products.partials.info')
+
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
@@ -27,15 +29,15 @@
 				</td>
 				
 				<td width="20px">
-						    <button class="btn btn-link">
+						   <a href="{{ route('products.show',$product->id) }}" class="btn btn-link">
 						    	Ver
-						    </button>
+						   </a>
 				</td>
 				
 				<td width="20px">
-						    <button class="btn btn-link">
+						   <a href="{{ route('products.edit',$product->id) }}" class="btn btn-link">
 						    	Editar
-						    </button>
+						   </a>
 				</td>
 				
 				<td width="20px">

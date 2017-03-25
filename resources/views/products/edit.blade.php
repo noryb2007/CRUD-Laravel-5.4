@@ -3,15 +3,16 @@
 @section('content')
 	<div class="col-xs-12 col-sm-8">
 	<h2>
-		Nuevo Producto
+		Editar Producto
 		<a href="{{ route('products.index') }}" class="btn btn-default pull-right">
 			Regresar
 		</a>
 	</h2>
+
 		@include('products.partials.errors')
 
-		{!! Form::open(['route' => 'products.store']) !!}
-			
+		{!! Form::model($product,['route' => ['products.update',$product->id],'method'=>'PUT']) !!}
+
 			@include('products.partials.form')
 
 		{!! Form::close() !!}
